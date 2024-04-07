@@ -1,0 +1,27 @@
+[package]
+name = "fermyon-spin-dioxus-csr"
+authors = ["ZombieKing <zombiekingcrypto@proton.me>"]
+description = "Fermyon Spin + Dioxus - Client Side Rendering (CSR) template with Tailwind"
+version = "0.1.0"
+edition = "2021"
+repository = "https://github.com/SatoshiWagmito/spin-dioxus-csr"
+license = "MIT"
+license-file = "LICENSE"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+console_error_panic_hook = "*"
+anyhow = "1"
+spin-sdk = "2.2.0"
+wasm-bindgen = "0.2.92"
+web-sys = "0.3.69"
+serde = "*"
+manganis = "0.2.2"
+
+[dependencies.dioxus]
+version = "0.5.0"
+features = ["web"]
+
+[workspace]

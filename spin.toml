@@ -1,0 +1,23 @@
+spin_manifest_version = 2
+
+[application]
+name = "fermyon-spin-dioxus-csr"
+version = "0.1.0"
+authors = ["ZombieKing <zombiekingcrypto@proton.me>"]
+description = "Fermyon Spin + Dioxus - Client Side Rendering (CSR) template with Tailwind"
+
+[[trigger.http]]
+route = "/..."
+component = "spin-dioxus-csr"
+
+[component.spin-dioxus-csr]
+source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.2.1/spin_static_fs.wasm", digest = "sha256:5f05b15f0f7cd353d390bc5ebffec7fe25c6a6d7a05b9366c86dcb1a346e9f0f" }
+files = [{ source = "pkg", destination = "/" }]
+# set the fallback path so maybe Spin works well with Dioxus like it does with the Leptos Router
+environment = { FALLBACK_PATH = "index.html" }
+
+[component.spin-dioxus-csr.build]
+command = "wasm-pack build --release --target web && cp static/index.html pkg && npx tailwindcss -i static/input.css -o pkg/tailwind.css"
+watch = ["src/**/*.rs", "Cargo.toml"]
+
+

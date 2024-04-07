@@ -12,3 +12,16 @@ Cargo.lock
 
 # MSVC Windows builds of rustc generate these, which store debugging information
 *.pdb
+
+
+# JETBRAINS
+.idea/
+
+
+# SPIN + TAILWIND
+.spin/
+node_modules/
+
+
+# MAC
+.DS_Store
